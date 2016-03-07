@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "AA6C02A8854223165F787A5AE1F615F76649300A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "17C5C5F656E661179003045A2D239A1780373214" : 0,
+    "AA6C02A8854223165F787A5AE1F615F76649300A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "89DA60EF-E292-4896-A49D-598081BFFE58",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "17C5C5F656E661179003045A2D239A1780373214" : "",
+    "AA6C02A8854223165F787A5AE1F615F76649300A" : "LTBanTang\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LTBanTang",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LTBanTang.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/TingTing0403\/projects.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "17C5C5F656E661179003045A2D239A1780373214"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/LiuTing0403\/LTBanTang.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AA6C02A8854223165F787A5AE1F615F76649300A"
+    }
+  ]
+}

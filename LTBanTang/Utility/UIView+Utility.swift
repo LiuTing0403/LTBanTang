@@ -25,4 +25,12 @@ extension UIView {
     func centerY()->CGFloat {
         return self.center.y
     }
+    
+    func maxX()->CGFloat {
+        return CGRectGetMaxX(self.frame)
+    }
+    
+    func maxY()->CGFloat {
+        return CGRectGetMaxY(self.frame)
+    }
 }
