@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		4561D877C4A5DE4464EEE76F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAA56DA915E228BDF26968A /* Pods.framework */; };
 		C8AA01111C8BEBF000930004 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01101C8BEBF000930004 /* MainViewController.swift */; };
-		C8AA01161C8C089900930004 /* MainViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01151C8C089900930004 /* MainViewHeaderView.swift */; };
 		C8AA01181C8C0AEF00930004 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01171C8C0AEF00930004 /* Defines.swift */; };
-		C8AA011C1C8C1DF600930004 /* CycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011B1C8C1DF600930004 /* CycleScrollView.swift */; };
+		C8AA01201C8D11E600930004 /* CycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011E1C8D11E600930004 /* CycleScrollView.swift */; };
+		C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */; };
 		C8D264851C8A804A007ECB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D264841C8A804A007ECB65 /* AppDelegate.swift */; };
 		C8D2648A1C8A804A007ECB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D264881C8A804A007ECB65 /* Main.storyboard */; };
 		C8D2648D1C8A804A007ECB65 /* LTBanTang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8D2648B1C8A804A007ECB65 /* LTBanTang.xcdatamodeld */; };
@@ -44,9 +44,9 @@
 		5C842BF6EC3F5FC9A90BCD7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C8AA01101C8BEBF000930004 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C8AA01121C8BEC3E00930004 /* LTBanTang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTBanTang-Bridging-Header.h"; sourceTree = "<group>"; };
-		C8AA01151C8C089900930004 /* MainViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewHeaderView.swift; sourceTree = "<group>"; };
 		C8AA01171C8C0AEF00930004 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
-		C8AA011B1C8C1DF600930004 /* CycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollView.swift; sourceTree = "<group>"; };
+		C8AA011E1C8D11E600930004 /* CycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollView.swift; sourceTree = "<group>"; };
+		C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewHeaderView.swift; sourceTree = "<group>"; };
 		C8D264811C8A804A007ECB65 /* LTBanTang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTBanTang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D264841C8A804A007ECB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D264891C8A804A007ECB65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +107,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C8AA011D1C8D11E600930004 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8AA011E1C8D11E600930004 /* CycleScrollView.swift */,
+				C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C8D264781C8A8049007ECB65 = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +141,8 @@
 		C8D264831C8A804A007ECB65 /* LTBanTang */ = {
 			isa = PBXGroup;
 			children = (
+				C8AA011D1C8D11E600930004 /* View */,
 				C8D264BA1C8BD68F007ECB65 /* Utility */,
-				C8D264B61C8BC122007ECB65 /* View */,
 				C8D264B71C8BC129007ECB65 /* Controller */,
 				C8D264B51C8BC119007ECB65 /* Model */,
 				C8D264841C8A804A007ECB65 /* AppDelegate.swift */,
@@ -170,16 +179,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C8D264B61C8BC122007ECB65 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C8AA01151C8C089900930004 /* MainViewHeaderView.swift */,
-				C8AA011B1C8C1DF600930004 /* CycleScrollView.swift */,
-			);
-			name = View;
-			path = Model/View;
 			sourceTree = "<group>";
 		};
 		C8D264B71C8BC129007ECB65 /* Controller */ = {
@@ -386,11 +385,11 @@
 			files = (
 				C8D2648D1C8A804A007ECB65 /* LTBanTang.xcdatamodeld in Sources */,
 				C8D264851C8A804A007ECB65 /* AppDelegate.swift in Sources */,
-				C8AA011C1C8C1DF600930004 /* CycleScrollView.swift in Sources */,
+				C8AA01201C8D11E600930004 /* CycleScrollView.swift in Sources */,
 				C8AA01181C8C0AEF00930004 /* Defines.swift in Sources */,
+				C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */,
 				C8D264BC1C8BD6C2007ECB65 /* UIView+Utility.swift in Sources */,
 				C8AA01111C8BEBF000930004 /* MainViewController.swift in Sources */,
-				C8AA01161C8C089900930004 /* MainViewHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
