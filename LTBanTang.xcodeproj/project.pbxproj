@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4561D877C4A5DE4464EEE76F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAA56DA915E228BDF26968A /* Pods.framework */; };
-		C8AA01111C8BEBF000930004 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01101C8BEBF000930004 /* MainViewController.swift */; };
-		C8AA01181C8C0AEF00930004 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01171C8C0AEF00930004 /* Defines.swift */; };
+		C836C6FF1C92711300B6BD07 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */; };
+		C8AA01181C8C0AEF00930004 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01171C8C0AEF00930004 /* Constants.swift */; };
 		C8AA01201C8D11E600930004 /* CycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011E1C8D11E600930004 /* CycleScrollView.swift */; };
 		C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */; };
+		C8AA01251C8D211400930004 /* BannerBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01241C8D211400930004 /* BannerBottomView.swift */; };
+		C8AA01271C8D29EF00930004 /* BannerBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01261C8D29EF00930004 /* BannerBottomCell.swift */; };
+		C8AA012B1C8E6AC800930004 /* TitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA012A1C8E6AC800930004 /* TitleBarView.swift */; };
+		C8AA012D1C8E71FD00930004 /* TitleBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA012C1C8E71FD00930004 /* TitleBarViewCell.swift */; };
+		C8AA01311C8ECD9600930004 /* MainViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01301C8ECD9600930004 /* MainViewCollectionViewCell.swift */; };
+		C8AA01331C8FF66300930004 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01321C8FF66300930004 /* MainViewController.swift */; };
+		C8AA01351C91470800930004 /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01341C91470800930004 /* TopicTableViewCell.swift */; };
+		C8AA01371C917FCC00930004 /* JSON_recommend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01361C917FCC00930004 /* JSON_recommend.swift */; };
 		C8D264851C8A804A007ECB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D264841C8A804A007ECB65 /* AppDelegate.swift */; };
 		C8D2648A1C8A804A007ECB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D264881C8A804A007ECB65 /* Main.storyboard */; };
 		C8D2648D1C8A804A007ECB65 /* LTBanTang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8D2648B1C8A804A007ECB65 /* LTBanTang.xcdatamodeld */; };
@@ -42,12 +50,21 @@
 /* Begin PBXFileReference section */
 		0F1FD4F367A80AEF41019E14 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C842BF6EC3F5FC9A90BCD7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C8AA01101C8BEBF000930004 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C836C6FC1C9269FC00B6BD07 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage.framework"; sourceTree = "<group>"; };
+		C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		C8AA01121C8BEC3E00930004 /* LTBanTang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTBanTang-Bridging-Header.h"; sourceTree = "<group>"; };
-		C8AA01171C8C0AEF00930004 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		C8AA01171C8C0AEF00930004 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C8AA011E1C8D11E600930004 /* CycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollView.swift; sourceTree = "<group>"; };
 		C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewHeaderView.swift; sourceTree = "<group>"; };
-		C8D264811C8A804A007ECB65 /* LTBanTang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTBanTang.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AA01241C8D211400930004 /* BannerBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerBottomView.swift; sourceTree = "<group>"; };
+		C8AA01261C8D29EF00930004 /* BannerBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerBottomCell.swift; sourceTree = "<group>"; };
+		C8AA012A1C8E6AC800930004 /* TitleBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBarView.swift; sourceTree = "<group>"; };
+		C8AA012C1C8E71FD00930004 /* TitleBarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBarViewCell.swift; sourceTree = "<group>"; };
+		C8AA01301C8ECD9600930004 /* MainViewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		C8AA01321C8FF66300930004 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C8AA01341C91470800930004 /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		C8AA01361C917FCC00930004 /* JSON_recommend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON_recommend.swift; sourceTree = "<group>"; };
+		C8D264811C8A804A007ECB65 /* 全糖.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "全糖.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D264841C8A804A007ECB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D264891C8A804A007ECB65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8D2648C1C8A804A007ECB65 /* LTBanTang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LTBanTang.xcdatamodel; sourceTree = "<group>"; };
@@ -102,6 +119,7 @@
 		AE70EDA3C38ECB35C76A51AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C836C6FC1C9269FC00B6BD07 /* SDWebImage.framework */,
 				CEAA56DA915E228BDF26968A /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -110,8 +128,14 @@
 		C8AA011D1C8D11E600930004 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C8AA011E1C8D11E600930004 /* CycleScrollView.swift */,
 				C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */,
+				C8AA01301C8ECD9600930004 /* MainViewCollectionViewCell.swift */,
+				C8AA01341C91470800930004 /* TopicTableViewCell.swift */,
+				C8AA011E1C8D11E600930004 /* CycleScrollView.swift */,
+				C8AA01241C8D211400930004 /* BannerBottomView.swift */,
+				C8AA01261C8D29EF00930004 /* BannerBottomCell.swift */,
+				C8AA012A1C8E6AC800930004 /* TitleBarView.swift */,
+				C8AA012C1C8E71FD00930004 /* TitleBarViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,7 +155,7 @@
 		C8D264821C8A804A007ECB65 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C8D264811C8A804A007ECB65 /* LTBanTang.app */,
+				C8D264811C8A804A007ECB65 /* 全糖.app */,
 				C8D264981C8A804A007ECB65 /* LTBanTangTests.xctest */,
 				C8D264A31C8A804A007ECB65 /* LTBanTangUITests.xctest */,
 			);
@@ -141,10 +165,10 @@
 		C8D264831C8A804A007ECB65 /* LTBanTang */ = {
 			isa = PBXGroup;
 			children = (
-				C8AA011D1C8D11E600930004 /* View */,
-				C8D264BA1C8BD68F007ECB65 /* Utility */,
 				C8D264B71C8BC129007ECB65 /* Controller */,
+				C8AA011D1C8D11E600930004 /* View */,
 				C8D264B51C8BC119007ECB65 /* Model */,
+				C8D264BA1C8BD68F007ECB65 /* Utility */,
 				C8D264841C8A804A007ECB65 /* AppDelegate.swift */,
 				C8D264881C8A804A007ECB65 /* Main.storyboard */,
 				C8D2648E1C8A804A007ECB65 /* Assets.xcassets */,
@@ -177,6 +201,7 @@
 		C8D264B51C8BC119007ECB65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8AA01361C917FCC00930004 /* JSON_recommend.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,7 +209,7 @@
 		C8D264B71C8BC129007ECB65 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C8AA01101C8BEBF000930004 /* MainViewController.swift */,
+				C8AA01321C8FF66300930004 /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,7 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				C8D264BB1C8BD6C2007ECB65 /* UIView+Utility.swift */,
-				C8AA01171C8C0AEF00930004 /* Defines.swift */,
+				C8AA01171C8C0AEF00930004 /* Constants.swift */,
+				C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -218,7 +244,7 @@
 			);
 			name = LTBanTang;
 			productName = LTBanTang;
-			productReference = C8D264811C8A804A007ECB65 /* LTBanTang.app */;
+			productReference = C8D264811C8A804A007ECB65 /* 全糖.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C8D264971C8A804A007ECB65 /* LTBanTangTests */ = {
@@ -383,13 +409,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8AA01251C8D211400930004 /* BannerBottomView.swift in Sources */,
+				C8AA01271C8D29EF00930004 /* BannerBottomCell.swift in Sources */,
+				C8AA01351C91470800930004 /* TopicTableViewCell.swift in Sources */,
+				C8AA01311C8ECD9600930004 /* MainViewCollectionViewCell.swift in Sources */,
+				C8AA01371C917FCC00930004 /* JSON_recommend.swift in Sources */,
+				C8AA01331C8FF66300930004 /* MainViewController.swift in Sources */,
 				C8D2648D1C8A804A007ECB65 /* LTBanTang.xcdatamodeld in Sources */,
 				C8D264851C8A804A007ECB65 /* AppDelegate.swift in Sources */,
 				C8AA01201C8D11E600930004 /* CycleScrollView.swift in Sources */,
-				C8AA01181C8C0AEF00930004 /* Defines.swift in Sources */,
+				C8AA012B1C8E6AC800930004 /* TitleBarView.swift in Sources */,
+				C8AA01181C8C0AEF00930004 /* Constants.swift in Sources */,
 				C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */,
+				C836C6FF1C92711300B6BD07 /* HTTPRequest.swift in Sources */,
+				C8AA012D1C8E71FD00930004 /* TitleBarViewCell.swift in Sources */,
 				C8D264BC1C8BD6C2007ECB65 /* UIView+Utility.swift in Sources */,
-				C8AA01111C8BEBF000930004 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,10 +565,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LTBanTang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTBanTang;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "全糖";
 				SWIFT_OBJC_BRIDGING_HEADER = "LTBanTang/LTBanTang-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -546,10 +584,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = LTBanTang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lt.HelloWorld.LTBanTang;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "全糖";
 				SWIFT_OBJC_BRIDGING_HEADER = "LTBanTang/LTBanTang-Bridging-Header.h";
 			};
 			name = Release;
@@ -612,7 +654,7 @@
 				C8D264AB1C8A804A007ECB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C8D264AC1C8A804A007ECB65 /* Build configuration list for PBXNativeTarget "LTBanTang" */ = {
 			isa = XCConfigurationList;
@@ -621,7 +663,7 @@
 				C8D264AE1C8A804A007ECB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C8D264AF1C8A804A007ECB65 /* Build configuration list for PBXNativeTarget "LTBanTangTests" */ = {
 			isa = XCConfigurationList;
@@ -630,7 +672,7 @@
 				C8D264B11C8A804A007ECB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C8D264B21C8A804A007ECB65 /* Build configuration list for PBXNativeTarget "LTBanTangUITests" */ = {
 			isa = XCConfigurationList;
@@ -639,7 +681,7 @@
 				C8D264B41C8A804A007ECB65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

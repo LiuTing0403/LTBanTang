@@ -7,13 +7,40 @@
 //
 
 import UIKit
+import SDWebImage
+
+protocol CycleScrollViewDelegate {
+    func cycleScrollView(collectionView:UICollectionView, didSelectedItemAtIndex index:Int)
+}
 
 class CycleScrollView: UIView {
     
     private let reusableCycleCell = "CycleCell"
     
     private var imageGroup:[UIImage]?
-    private var imageURLStrings:[String]?
+    internal var banners:[Banner]? {
+        didSet{
+            self.pageCount          = banners!.count
+            self.imageGroup         = self.banners?.map({ (banner) -> UIImage in
+                guard let data = NSData(contentsOfURL: banner.photoURL)
+                    else {
+                        print("URL is invalid")
+                        return UIImage(named: "scrollImage_1")!
+                }
+                guard let image = UIImage(data: data)
+                    else {
+                        print("error in get Image from nsdata")
+                        return UIImage(named: "scrollImage_1")!
+                }
+                return image
+            })
+            
+            self.collectionView?.reloadData()
+            setUpAutoScrollTimer()
+
+            
+        }
+    }
     
     private var pageIndicator:UIPageControl?
     private var bezierPath:UIBezierPath?
@@ -21,51 +48,62 @@ class CycleScrollView: UIView {
     private var collectionView:UICollectionView?
     private var collectionViewFlowLayout:UICollectionViewFlowLayout?
     
-    private var pageCount:Int = 1
+    private var pageCount:Int = 1 {
+        didSet{
+            self.pageIndicator?.numberOfPages = pageCount
+        }
+    }
     private var scrollInterval:Double = 3.0
     private var counter:Int = 0
+    
+    internal var delegate:CycleScrollViewDelegate?
     
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setUpScrollView()
+        addPageIndicator()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    convenience init(frame:CGRect, imageGroup:[UIImage]) {
-        self.init(frame:frame)
-        self.imageGroup = imageGroup
-        self.pageCount  = imageGroup.count
-        setUpScrollView()
-        addPageIndicator()
-        setUpAutoScrollTimer()
-        
-    }
+//    convenience init(frame:CGRect, imageGroup:[UIImage]) {
+//        self.init(frame:frame)
+//        self.imageGroup = imageGroup
+//        self.pageCount  = imageGroup.count
+//        setUpScrollView()
+//        addPageIndicator()
+//        setUpAutoScrollTimer()
+//        
+//    }
     
-    convenience init(frame:CGRect, imageURLStrings:[String]) {
-        self.init(frame:frame)
-        self.imageURLStrings    = imageURLStrings
-        self.pageCount          = imageURLStrings.count
-        self.imageGroup         = imageURLStrings.map({(urlString) -> UIImage in
-            
-            if let data = NSData(contentsOfURL: NSURL(string: urlString)!) {
-                if let image = UIImage(data: data) {
-                    return image
-                } else {
-                    return UIImage(named: "scrollImage_1")!
-                }
-            } else {
-                return UIImage(named: "scrollImage_2")!
-            }
-        })
-        
-        setUpScrollView()
-        addPageIndicator()
-        setUpAutoScrollTimer()
-        
-    }
+//    convenience init(frame:CGRect, banners:[Banner]) {
+//        self.init(frame:frame)
+//        self.banners = banners
+//        self.pageCount          = banners.count
+//        self.imageGroup         = banners.map({(banner) -> UIImage in
+//            
+//            guard let data = NSData(contentsOfURL: banner.photoURL)
+//                else {
+//                    print("URL is invalid")
+//                    return UIImage(named: "scrollImage_1")!
+//            }
+//            guard let image = UIImage(data: data)
+//                else {
+//                    print("error in get Image from nsdata")
+//                    return UIImage(named: "scrollImage_1")!
+//                }
+//            return image
+//        })
+//        
+//        setUpScrollView()
+//        addPageIndicator()
+//        setUpAutoScrollTimer()
+//        
+//    }
     //设置scroll view
     internal func setUpScrollView(){
         
@@ -79,7 +117,7 @@ class CycleScrollView: UIView {
         collectionView?.pagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false
-        
+        collectionView?.backgroundColor = UIColor.whiteColor()
         collectionView?.dataSource = self
         collectionView?.delegate = self
 
@@ -110,7 +148,6 @@ class CycleScrollView: UIView {
     internal func autoScroll(){
         
         counter++
- //       autoScrolling = true
         self.collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: counter, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.None, animated: true)
         
     }
@@ -136,7 +173,7 @@ class CycleScrollView: UIView {
         pageIndicator?.center = CGPointMake(self.centerX(),self.maxY()-8)
 
     }
-    
+
 }
 //MARK:Collection View Data Source
 extension CycleScrollView:UICollectionViewDataSource {
@@ -146,7 +183,11 @@ extension CycleScrollView:UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pageCount * 100
+        if banners == nil {
+            return 0
+        } else {
+            return pageCount * 1000
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -179,5 +220,10 @@ extension CycleScrollView:UIScrollViewDelegate {
 //MARK: Collection View Delegate
 extension CycleScrollView:UICollectionViewDelegate {
     
+    func collectionView(collectionView: UICollectionView, didselectItemAtIndexPath indexPath: NSIndexPath) {
+        let currentPage = pageIndicator?.currentPage
+        delegate?.cycleScrollView(collectionView, didSelectedItemAtIndex: currentPage!)
+        print("did selected cycle scroll view at index \(pageIndicator?.currentPage)")
+    }
     
 }
