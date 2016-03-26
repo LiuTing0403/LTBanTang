@@ -25,6 +25,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BvY-av-hTB">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HGT-Rj-p14">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -111,43 +112,74 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="q2q-2w-5tJ">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImagePortrait" translatesAutoresizingMaskIntoConstraints="NO" id="ZsM-Sx-xrD">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AbC-Hq-hWs" firstAttribute="leading" secondItem="2Mq-Kf-BHo" secondAttribute="leadingMargin" constant="-20" id="8cW-K7-xaA"/>
+                            <constraint firstItem="q2q-2w-5tJ" firstAttribute="centerY" secondItem="2Mq-Kf-BHo" secondAttribute="centerY" id="9Bk-Tk-Z3h"/>
+                            <constraint firstItem="b4w-hp-X5n" firstAttribute="top" secondItem="ZsM-Sx-xrD" secondAttribute="bottom" id="DIh-Sx-Ld6"/>
                             <constraint firstItem="AbC-Hq-hWs" firstAttribute="centerY" secondItem="2Mq-Kf-BHo" secondAttribute="centerY" id="Gvk-8t-Mha"/>
                             <constraint firstItem="AbC-Hq-hWs" firstAttribute="top" secondItem="2Mq-Kf-BHo" secondAttribute="topMargin" id="JHI-4o-pTk"/>
+                            <constraint firstItem="q2q-2w-5tJ" firstAttribute="centerX" secondItem="2Mq-Kf-BHo" secondAttribute="centerX" id="LCI-z3-SLH"/>
                             <constraint firstItem="b4w-hp-X5n" firstAttribute="top" secondItem="AbC-Hq-hWs" secondAttribute="bottom" id="LfO-DT-3FI"/>
+                            <constraint firstItem="ZsM-Sx-xrD" firstAttribute="leading" secondItem="2Mq-Kf-BHo" secondAttribute="leadingMargin" constant="-20" id="d5K-LB-M8i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AbC-Hq-hWs" secondAttribute="trailing" constant="-20" id="i9K-SO-MYg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZsM-Sx-xrD" secondAttribute="trailing" constant="-20" id="jFL-fL-smm"/>
+                            <constraint firstItem="ZsM-Sx-xrD" firstAttribute="top" secondItem="2Mq-Kf-BHo" secondAttribute="topMargin" id="xV3-jQ-ZBa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="AbC-Hq-hWs"/>
+                                <exclude reference="q2q-2w-5tJ"/>
+                                <exclude reference="ZsM-Sx-xrD"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LfO-DT-3FI"/>
                                 <exclude reference="8cW-K7-xaA"/>
                                 <exclude reference="Gvk-8t-Mha"/>
                                 <exclude reference="JHI-4o-pTk"/>
                                 <exclude reference="i9K-SO-MYg"/>
+                                <exclude reference="d5K-LB-M8i"/>
+                                <exclude reference="jFL-fL-smm"/>
+                                <exclude reference="xV3-jQ-ZBa"/>
+                                <exclude reference="9Bk-Tk-Z3h"/>
+                                <exclude reference="LCI-z3-SLH"/>
+                                <exclude reference="DIh-Sx-Ld6"/>
+                                <exclude reference="LfO-DT-3FI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="AbC-Hq-hWs"/>
+                                <include reference="q2q-2w-5tJ"/>
+                                <include reference="ZsM-Sx-xrD"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="LfO-DT-3FI"/>
                                 <include reference="8cW-K7-xaA"/>
                                 <include reference="Gvk-8t-Mha"/>
                                 <include reference="JHI-4o-pTk"/>
                                 <include reference="i9K-SO-MYg"/>
+                                <include reference="d5K-LB-M8i"/>
+                                <include reference="jFL-fL-smm"/>
+                                <include reference="xV3-jQ-ZBa"/>
+                                <include reference="9Bk-Tk-Z3h"/>
+                                <include reference="LCI-z3-SLH"/>
+                                <include reference="DIh-Sx-Ld6"/>
+                                <include reference="LfO-DT-3FI"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backgroundScrollView" destination="AbC-Hq-hWs" id="mDG-Lv-zKH"/>
                         <outlet property="collectionView" destination="BvY-av-hTB" id="nIW-Ez-kyU"/>
                         <outlet property="headerView" destination="N93-B5-L44" id="m1z-9h-Hf7"/>
+                        <outlet property="launchImageView" destination="ZsM-Sx-xrD" id="RrN-H8-C7w"/>
+                        <outlet property="loadingView" destination="q2q-2w-5tJ" id="vBq-XM-Al0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApY-It-uVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,4 +187,7 @@
             <point key="canvasLocation" x="786" y="103"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchImagePortrait" width="414" height="736"/>
+    </resources>
 </document>

@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4561D877C4A5DE4464EEE76F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAA56DA915E228BDF26968A /* Pods.framework */; };
+		C81584EF1CA62059004DFC4F /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81584EE1CA62059004DFC4F /* PersistencyManager.swift */; };
+		C81584F11CA62106004DFC4F /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81584F01CA62106004DFC4F /* LibraryAPI.swift */; };
 		C836C6FF1C92711300B6BD07 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */; };
+		C836C7011C93B2BB00B6BD07 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836C7001C93B2BB00B6BD07 /* LoadingView.swift */; };
 		C8AA01181C8C0AEF00930004 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA01171C8C0AEF00930004 /* Constants.swift */; };
 		C8AA01201C8D11E600930004 /* CycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011E1C8D11E600930004 /* CycleScrollView.swift */; };
 		C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AA011F1C8D11E600930004 /* MainViewHeaderView.swift */; };
@@ -50,8 +53,11 @@
 /* Begin PBXFileReference section */
 		0F1FD4F367A80AEF41019E14 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5C842BF6EC3F5FC9A90BCD7B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C81584EE1CA62059004DFC4F /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		C81584F01CA62106004DFC4F /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 		C836C6FC1C9269FC00B6BD07 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "Pods/../build/Debug-iphoneos/SDWebImage.framework"; sourceTree = "<group>"; };
 		C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		C836C7001C93B2BB00B6BD07 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C8AA01121C8BEC3E00930004 /* LTBanTang-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LTBanTang-Bridging-Header.h"; sourceTree = "<group>"; };
 		C8AA01171C8C0AEF00930004 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C8AA011E1C8D11E600930004 /* CycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleScrollView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 				C8AA01261C8D29EF00930004 /* BannerBottomCell.swift */,
 				C8AA012A1C8E6AC800930004 /* TitleBarView.swift */,
 				C8AA012C1C8E71FD00930004 /* TitleBarViewCell.swift */,
+				C836C7001C93B2BB00B6BD07 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +227,8 @@
 				C8D264BB1C8BD6C2007ECB65 /* UIView+Utility.swift */,
 				C8AA01171C8C0AEF00930004 /* Constants.swift */,
 				C836C6FE1C92711300B6BD07 /* HTTPRequest.swift */,
+				C81584EE1CA62059004DFC4F /* PersistencyManager.swift */,
+				C81584F01CA62106004DFC4F /* LibraryAPI.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -414,6 +423,7 @@
 				C8AA01351C91470800930004 /* TopicTableViewCell.swift in Sources */,
 				C8AA01311C8ECD9600930004 /* MainViewCollectionViewCell.swift in Sources */,
 				C8AA01371C917FCC00930004 /* JSON_recommend.swift in Sources */,
+				C836C7011C93B2BB00B6BD07 /* LoadingView.swift in Sources */,
 				C8AA01331C8FF66300930004 /* MainViewController.swift in Sources */,
 				C8D2648D1C8A804A007ECB65 /* LTBanTang.xcdatamodeld in Sources */,
 				C8D264851C8A804A007ECB65 /* AppDelegate.swift in Sources */,
@@ -421,6 +431,8 @@
 				C8AA012B1C8E6AC800930004 /* TitleBarView.swift in Sources */,
 				C8AA01181C8C0AEF00930004 /* Constants.swift in Sources */,
 				C8AA01211C8D11E600930004 /* MainViewHeaderView.swift in Sources */,
+				C81584EF1CA62059004DFC4F /* PersistencyManager.swift in Sources */,
+				C81584F11CA62106004DFC4F /* LibraryAPI.swift in Sources */,
 				C836C6FF1C92711300B6BD07 /* HTTPRequest.swift in Sources */,
 				C8AA012D1C8E71FD00930004 /* TitleBarViewCell.swift in Sources */,
 				C8D264BC1C8BD6C2007ECB65 /* UIView+Utility.swift in Sources */,

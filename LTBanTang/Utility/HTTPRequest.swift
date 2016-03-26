@@ -25,18 +25,38 @@ class HTTPRequest: NSObject {
     
     func getBanTangRecommendData(page:Int, completion:(responseObject:Response<AnyObject,NSError>) -> Void){
         let parameters:[String:AnyObject] = [
-            BanTangRecommendRequestKeys.clientID:BanTangRecommendRequestValues.clientID,
-            BanTangRecommendRequestKeys.clientSecret:BanTangRecommendRequestValues.clientSecret,
-            BanTangRecommendRequestKeys.oauth:BanTangRecommendRequestValues.oauth,
-            BanTangRecommendRequestKeys.page:"\(page)",
-            BanTangRecommendRequestKeys.pageSize:BanTangRecommendRequestValues.pageSize,
-            BanTangRecommendRequestKeys.screenSize:BanTangRecommendRequestValues.screenSize,
-            BanTangRecommendRequestKeys.trackUserID:BanTangRecommendRequestValues.trackUserID,
-            BanTangRecommendRequestKeys.v:BanTangRecommendRequestValues.v
+            BanTangRequestKeys.clientID:BanTangRequestValues.clientID,
+            BanTangRequestKeys.clientSecret:BanTangRequestValues.clientSecret,
+            BanTangRequestKeys.oauth:BanTangRequestValues.oauth,
+            BanTangRequestKeys.page:"\(page)",
+            BanTangRequestKeys.pageSize:BanTangRequestValues.pageSize,
+            BanTangRequestKeys.screenSize:BanTangRequestValues.screenSize,
+            BanTangRequestKeys.trackUserID:BanTangRequestValues.trackUserID,
+            BanTangRequestKeys.v:BanTangRequestValues.v
         ]
-        getHTTPResponse(BanTangRecommendRequestKeys.baseURL, parameters: parameters) { (responseObject) -> Void in
+        getHTTPResponse(BanTangRequestKeys.bantangRecommendBaseURL, parameters: parameters) { (responseObject) -> Void in
             completion(responseObject: responseObject)
         }
+    }
+    
+    func getNewTopicData(page:Int, ids:String, scene:String, completion:(responseObject:Response<AnyObject,NSError>) -> Void){
+        let parameters:[String:AnyObject] = [
+            BanTangNewTopicRequestKeys.clientID:BanTangRequestValues.clientID,
+            BanTangNewTopicRequestKeys.clientSecret:BanTangRequestValues.clientSecret,
+            BanTangNewTopicRequestKeys.ids:ids,
+            BanTangNewTopicRequestKeys.scene:scene,
+            BanTangNewTopicRequestKeys.oauth:BanTangRequestValues.oauth,
+            BanTangNewTopicRequestKeys.page:"\(page)",
+            BanTangNewTopicRequestKeys.pageSize:BanTangRequestValues.pageSize,
+            BanTangNewTopicRequestKeys.screenSize:BanTangRequestValues.screenSize,
+            BanTangNewTopicRequestKeys.trackUserID:BanTangRequestValues.trackUserID,
+            BanTangNewTopicRequestKeys.v:BanTangRequestValues.v
+        ]
+        getHTTPResponse(BanTangNewTopicRequestKeys.bantangTopicDetailBaseURL, parameters: parameters) { (responseObject) -> Void in
+            completion(responseObject: responseObject)
+        }
+        
+        
     }
     
 }

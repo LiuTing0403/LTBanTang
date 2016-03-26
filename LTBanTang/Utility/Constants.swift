@@ -22,24 +22,38 @@ let buttonSetImageURLStrings:[String] =
 
 let titlesOnMainView:[String] = ["最新","文艺","礼物","指南","爱美","设计","吃货","格调","厨房","上班族","学生党","聚会","节日","宿舍"]
 
-struct BanTangRecommendRequestKeys {
-    static let baseURL = "http://open3.bantangapp.com/recommend/index?"
+
+
+struct BanTangRequestKeys {
+
+    static let bantangRecommendBaseURL = "http://open3.bantangapp.com/recommend/index?"
     
     static let clientID = "client_id"
     static let clientSecret = "client_secret"
     static let oauth = "oauth_token"
-
     static let page = "page"
     static let pageSize = "pagesize"
     static let screenSize = "screensize"
-
     static let trackUserID = "track_user_id"
     static let v = "v"
-    
-    
 }
 
-struct BanTangRecommendRequestValues {
+struct BanTangNewTopicRequestKeys {
+    static let bantangTopicDetailBaseURL = "http://open3.bantangapp.com/topic/list?"
+
+    static let clientID = "client_id"
+    static let clientSecret = "client_secret"
+    static let oauth = "oauth_token"
+    static let ids = "ids"
+    static let scene = "scene"
+    static let page = "page"
+    static let pageSize = "pagesize"
+    static let screenSize = "screensize"
+    static let trackUserID = "track_user_id"
+    static let v = "v"
+}
+
+struct BanTangRequestValues {
     static let clientID = "bt_app_ios"
     static let clientSecret = "9c1e6634ce1c5098e056628cd66a17a5"
     static let oauth = "2d7546e6cd17c28eefff42eb18348749"
@@ -47,9 +61,10 @@ struct BanTangRecommendRequestValues {
     static let screenSize = "640"
     static let trackUserID = "1948695"
     static let v = "10"
+    static let readingIDS = "1273%2C1413%2C1706%2C1146%2C1793%2C1246%2C1564%2C1372%2C1409%2C2001%2C1560%2C1594%2C1959%2C2091%2C1428%2C1736%2C1331%2C1645%2C1478%2C1993%2C1833%2C1743%2C1881%2C1657%2C1335%2C1806%2C1618%2C1622%2C2154%2C1992"
 }
 
-struct BanTangRecommendResponseKeys {
+struct BanTangResponseKeys {
     static let status = "status"
     static let message = "mag"
     static let ts = "ts"
@@ -81,6 +96,7 @@ struct BanTangBannerKeys {
 struct BanTangCategoryElementKeys {
     static let ID = "id"
     static let title = "title"
+    static let extend = "extend"
 }
 
 struct BanTangBannerBottomElementKeys {

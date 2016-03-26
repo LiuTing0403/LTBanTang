@@ -17,10 +17,10 @@ struct RecommendResponseObject {
     
     
     init(jsonObject:JSON){
-        self.status = jsonObject[BanTangRecommendResponseKeys.status].intValue
-        self.message = jsonObject[BanTangRecommendResponseKeys.message].stringValue
-        self.ts = jsonObject[BanTangRecommendResponseKeys.ts].int32Value
-        self.data = jsonObject[BanTangRecommendResponseKeys.data].dictionaryValue
+        self.status = jsonObject[BanTangResponseKeys.status].intValue
+        self.message = jsonObject[BanTangResponseKeys.message].stringValue
+        self.ts = jsonObject[BanTangResponseKeys.ts].int32Value
+        self.data = jsonObject[BanTangResponseKeys.data].dictionaryValue
     }
 }
 
@@ -35,6 +35,13 @@ struct RecommendData {
         self.banner = (dictionaryObject[BanTangDataObjectKeys.banner]?.arrayValue)!
         self.categoryElement = (dictionaryObject[BanTangDataObjectKeys.categoryElement]?.arrayValue)!
         self.bannerBottomElement = (dictionaryObject[BanTangDataObjectKeys.bannerBottomElement]?.arrayValue)!
+    }
+}
+
+struct TopicList {
+    internal let topic:[JSON]
+    init(dictionaryObject:[String:JSON]){
+        self.topic = (dictionaryObject[BanTangDataObjectKeys.topic]?.arrayValue)!
     }
 }
 
@@ -72,15 +79,18 @@ struct Banner {
 struct CategoryElement {
     internal let ID:String
     internal let title:String
+    internal let extend:String
     
     init(jsonObject:JSON){
         self.ID = jsonObject[BanTangCategoryElementKeys.ID].stringValue
         self.title = jsonObject[BanTangCategoryElementKeys.title].stringValue
+        self.extend = jsonObject[BanTangCategoryElementKeys.extend].stringValue
     }
     
     init(ID:String, title:String) {
         self.ID = ID
         self.title = title
+        self.extend = ""
     }
     
 }

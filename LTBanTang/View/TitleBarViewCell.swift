@@ -72,11 +72,6 @@ class TitleBarViewCell: UICollectionViewCell {
         self.contentView.addConstraints(allConstraints)
         
     }
-    
 
-    
-    
-    
-    
     
 }

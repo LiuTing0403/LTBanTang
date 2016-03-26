@@ -40,6 +40,7 @@ class MainViewCollectionViewCell: UICollectionViewCell {
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.estimatedRowHeight = 100
+        tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
         
         self.contentView.addSubview(tableView!)
 
@@ -85,10 +86,9 @@ extension MainViewCollectionViewCell:UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reusableTableViewCell, forIndexPath: indexPath) as! TopicTableViewCell
         let topicdata = topicList![indexPath.row]
-        cell.topicImageView?.sd_setImageWithURL(topicdata.photoURL)
+        cell.topicImageView?.sd_setImageWithURL(topicdata.photoURL, placeholderImage: UIImage(named: "topicpic"))
         cell.topicTitleLabel?.text = topicdata.title
         cell.topicLikeLabel?.text = "♡\(topicdata.likes)"
-        
         return cell
     }
 }

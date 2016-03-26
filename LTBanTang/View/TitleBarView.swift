@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol TitleBarViewDelegate {
+    func didSelectedTitleAtIndex(indexPath:NSIndexPath)
+}
+
 class TitleBarView: UIView {
     
     private let reusableCell = "reusableCell"
+    internal var delegate:TitleBarViewDelegate?
     
     internal var categoryElements = [CategoryElement]() {
         didSet{
@@ -22,7 +27,15 @@ class TitleBarView: UIView {
     private var collectionViewFlowLayout:UICollectionViewFlowLayout?
     private var indicatorView:UIScrollView?
     private var indicator:UIView?
-
+    internal var indicatorCurrentIndex:Int = 0 {
+        didSet{
+           // indicatorView?.setContentOffset(collectionView!.contentOffset, animated: true)
+//            UIView.animateWithDuration(0.5) { () -> Void in
+//                self.indicator?.frame.origin.x = self.width()/6 * CGFloat(self.indicatorCurrentIndex)
+//            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpCollectionView()
@@ -102,6 +115,13 @@ class TitleBarView: UIView {
         //collectionViewFlowLayout?.itemSize.width = self.width()/6
         indicator?.frame.size.width = self.width()/6
     }
+    internal func selectItemAtIndexPath(index:Int){
+        collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: true, scrollPosition: .CenteredHorizontally)
+       //self.delegate?.didSelectedTitleAtIndex(NSIndexPath(forItem: index, inSection: 0))
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.indicator?.frame.origin.x = self.width()/6 * CGFloat(index)
+        }
+    }
     
 
 }
@@ -123,14 +143,20 @@ extension TitleBarView:UICollectionViewDataSource {
         return cell
     }
 }
+//MARK: Collection View Delegate
 extension TitleBarView:UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
         collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)
+        self.delegate?.didSelectedTitleAtIndex(indexPath)
+
+        print(collectionView.contentOffset)
+      //  indicatorCurrentIndex = indexPath.row
         UIView.animateWithDuration(0.5) { () -> Void in
             self.indicator?.frame.origin.x = self.width()/6 * CGFloat(indexPath.row)
         }
+        
     }
 
 
@@ -140,6 +166,8 @@ extension TitleBarView:UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         indicatorView?.contentOffset.x = (collectionView?.contentOffset.x)!
     }
+    
+    
 }
 
 extension TitleBarView:UICollectionViewDelegateFlowLayout {

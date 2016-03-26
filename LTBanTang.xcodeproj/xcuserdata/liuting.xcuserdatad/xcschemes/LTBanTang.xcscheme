@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8D264801C8A8049007ECB65"
-               BuildableName = "LTBanTang.app"
+               BuildableName = "&#x5168;&#x7cd6;.app"
                BlueprintName = "LTBanTang"
                ReferencedContainer = "container:LTBanTang.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8D264801C8A8049007ECB65"
-            BuildableName = "LTBanTang.app"
+            BuildableName = "&#x5168;&#x7cd6;.app"
             BlueprintName = "LTBanTang"
             ReferencedContainer = "container:LTBanTang.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8D264801C8A8049007ECB65"
-            BuildableName = "LTBanTang.app"
+            BuildableName = "&#x5168;&#x7cd6;.app"
             BlueprintName = "LTBanTang"
             ReferencedContainer = "container:LTBanTang.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8D264801C8A8049007ECB65"
-            BuildableName = "LTBanTang.app"
+            BuildableName = "&#x5168;&#x7cd6;.app"
             BlueprintName = "LTBanTang"
             ReferencedContainer = "container:LTBanTang.xcodeproj">
          </BuildableReference>

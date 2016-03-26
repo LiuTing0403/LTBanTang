@@ -19,15 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImagePortrait" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-9g-qx2">
-                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E5w-9g-qx2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="2q1-vc-2vG"/>
+                            <constraint firstItem="E5w-9g-qx2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="2q1-vc-2vG"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="E5w-9g-qx2" secondAttribute="bottom" id="ihn-0H-IuN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="E5w-9g-qx2" secondAttribute="trailing" id="lOe-VS-iXf"/>
-                            <constraint firstItem="E5w-9g-qx2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="qrR-Vd-le8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E5w-9g-qx2" secondAttribute="trailing" constant="-20" id="lOe-VS-iXf"/>
+                            <constraint firstItem="E5w-9g-qx2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="qrR-Vd-le8"/>
                         </constraints>
                     </view>
                 </viewController>

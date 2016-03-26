@@ -139,7 +139,7 @@ class CycleScrollView: UIView {
     }
     //设置自动翻页
     internal func setUpAutoScrollTimer(){
-        timer = NSTimer(timeInterval: scrollInterval, target: self, selector: "autoScroll", userInfo: nil, repeats: true)
+        timer = NSTimer(timeInterval: scrollInterval, target: self, selector: #selector(CycleScrollView.autoScroll), userInfo: nil, repeats: true)
         NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
 
     }
@@ -147,7 +147,7 @@ class CycleScrollView: UIView {
     
     internal func autoScroll(){
         
-        counter++
+        counter += 1
         self.collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: counter, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.None, animated: true)
         
     }
