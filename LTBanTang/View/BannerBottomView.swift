@@ -17,28 +17,34 @@ class BannerBottomView: UIView {
 
     private var imageGroup:[UIImage]?
     private var imageURLStrings:[String]?
-    internal var bannerBottomElements:[BannerBottomElement]? {
-        didSet{
-            elementCount = (bannerBottomElements?.count)!
-            collectionView?.reloadData()
-        }
-    }
+    private var bannerBottomElements:[BannerBottomElement] = []
     
     private var titles:[String]?
     private var elementCount:Int = 4
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bannerBottomElements = [BannerBottomElement]()
         setUpCollectionView()
         setUpConstraints()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BannerBottomView.reloadBannerBottomData), name: "ReloadDataForBannerBottomElements", object: nil)
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
+    deinit{
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func reloadBannerBottomData(notification:NSNotification) {
+        let userInfo  = notification.userInfo as! [String:AnyObject]
 
+        bannerBottomElements = userInfo["bannerBottomElements"] as! [BannerBottomElement]
+        elementCount = bannerBottomElements.count
+        collectionView?.reloadData()
+    }
     
     //设置collection view
     func setUpCollectionView(){
@@ -85,13 +91,13 @@ extension BannerBottomView:UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (bannerBottomElements?.count)!
+        return bannerBottomElements.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reusableCell, forIndexPath: indexPath) as! BannerBottomCell
-        let element = bannerBottomElements![indexPath.row]
+        let element = bannerBottomElements[indexPath.row]
         cell.textLabel?.text = element.title
         cell.imageView?.sd_setImageWithURL(element.photoURL)
         

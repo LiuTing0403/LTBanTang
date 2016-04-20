@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
 
 class MainViewCollectionViewCell: UICollectionViewCell {
     private let reusableTableViewCell = "topicTableViewCell"
@@ -16,6 +17,9 @@ class MainViewCollectionViewCell: UICollectionViewCell {
     internal var topicList:[Topic]? {
         didSet{
             self.tableView?.reloadData()
+            self.tableView?.mj_footer = MJRefreshAutoNormalFooter(refreshingBlock: {
+                NSNotificationCenter.defaultCenter().postNotificationName("RefreshDataForTopicAtIndex", object: nil)
+            })
         }
     }
     
@@ -34,14 +38,18 @@ class MainViewCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     func setUpSubview(){
+        print("set Up table view subviews")
         tableView = UITableView()
         tableView?.registerClass(TopicTableViewCell.self, forCellReuseIdentifier: reusableTableViewCell)
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.estimatedRowHeight = 100
         tableView?.separatorStyle = UITableViewCellSeparatorStyle.None
-        
         self.contentView.addSubview(tableView!)
 
     }
@@ -80,7 +88,6 @@ extension MainViewCollectionViewCell:UITableViewDataSource {
         } else {
             return (topicList?.count)!
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -91,8 +98,14 @@ extension MainViewCollectionViewCell:UITableViewDataSource {
         cell.topicLikeLabel?.text = "♡\(topicdata.likes)"
         return cell
     }
+    
+    
 }
 
 extension MainViewCollectionViewCell:UITableViewDelegate {
     
+}
+
+extension MainViewCollectionViewCell:UIScrollViewDelegate {
+
 }

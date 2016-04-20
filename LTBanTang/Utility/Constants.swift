@@ -91,6 +91,7 @@ struct BanTangBannerKeys {
     static let ID = "id"
     static let title = "title"
     static let photoURL = "photo"
+    static let photo = "photoImage"
 }
 
 struct BanTangCategoryElementKeys {

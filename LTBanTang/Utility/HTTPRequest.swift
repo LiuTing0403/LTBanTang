@@ -7,13 +7,11 @@
 //
 
 import Alamofire
+import SDWebImage
 
-private let httpRequest = HTTPRequest()
 
 class HTTPRequest: NSObject {
-    class var sharedInstance:HTTPRequest {
-        return httpRequest
-    }
+   
     
     func getHTTPResponse(urlString:String, parameters:[String:AnyObject]?, completion:(responseObject:Response<AnyObject,NSError>) -> Void) {
         
@@ -55,8 +53,21 @@ class HTTPRequest: NSObject {
         getHTTPResponse(BanTangNewTopicRequestKeys.bantangTopicDetailBaseURL, parameters: parameters) { (responseObject) -> Void in
             completion(responseObject: responseObject)
         }
-        
-        
+
+    }
+    
+    func downLoadImage(imageURL: NSURL) -> UIImage {
+        if let data = NSData(contentsOfURL: imageURL) {
+            if let image = UIImage(data: data) {
+                return image
+            }
+            else {
+                assert(false, "down load NSData failed")
+            }
+        }
+        else {
+            assert(false, "down load image failed")
+        }
     }
     
 }

@@ -9,7 +9,15 @@
 import UIKit
 import SwiftyJSON
 
+
 class LibraryAPI: NSObject {
+    
+    class var sharedInstance:LibraryAPI {
+        struct Singleton {
+            static let instance = LibraryAPI()
+        }
+        return Singleton.instance
+    }
     
     private var httpRequest:HTTPRequest
     private var persistencyManager:PersistencyManager
@@ -21,39 +29,65 @@ class LibraryAPI: NSObject {
         super.init()
     }
     
-//    func getNewTopics(elementsNumber:Int){
-//        
-//        if categoryElements[elementsNumber].extend.characters.count > 2 {
-//            ids = categoryElements[elementsNumber].extend
-//            scene = ""
-//        } else {
-//            scene = categoryElements[elementsNumber].extend
-//            ids = ""
-//        }
-//        
-//        HTTPRequest().getNewTopicData(0, ids: self.ids, scene:self.scene) { (responseObject) -> Void in
-//            if responseObject.result.error == nil {
-//                guard let jsonData = responseObject.data
-//                    else {
-//                        print("can't get data from response object")
-//                        return
-//                }
-//                let jsonObject = JSON(data: jsonData)
-//                let recommendResponseObject = RecommendResponseObject(jsonObject: jsonObject)
-//                let topicData = recommendResponseObject.data
-//                let topicListJSON = TopicList(dictionaryObject:topicData!)
-//                let topicJSON = topicListJSON.topic
-//                let topic = topicJSON.map({ (json) -> Topic in
-//                    return Topic(jsonObject: json)
-//                })
-//                self.topics[elementsNumber] = topic
-//                self.loadingView.stopAnimating()
-//            }
-//        }
-//        
+//    func getFirstPageData() -> ([[Topic]], [Banner], [CategoryElement], [BannerBottomElement]) {
+//        return persistencyManager.getFirstPageData()
 //    }
     
-    func getRecommendData(requestPage:Int){
+    func getTopics() -> [[Topic]] {
+        return persistencyManager.getTopics()
+    }
+    
+    func getBanners() -> [Banner] {
+        return persistencyManager.getBanners()
+    }
+    
+    func getCategoryElements() -> [CategoryElement] {
+        return persistencyManager.getCategoryElements()
+    }
+    
+    func getBannerBottomElements() -> [BannerBottomElement] {
+        return persistencyManager.getBannerBottomElements()
+    }
+    
+    
+    func getNewTopics(index:Int,requestPage:Int, extend:String, completion:()->Void){
+        
+        var ids = ""
+        var scene = ""
+        
+        if extend.characters.count > 2 {
+            ids = extend
+        } else {
+            scene = extend
+        }
+        
+        HTTPRequest().getNewTopicData(requestPage, ids: ids, scene:scene) { (responseObject) -> Void in
+            if responseObject.result.error == nil {
+                guard let jsonData = responseObject.data
+                    else {
+                        print("can't get data from response object")
+                        return
+                }
+                let jsonObject = JSON(data: jsonData)
+                let recommendResponseObject = RecommendResponseObject(jsonObject: jsonObject)
+                let topicData = recommendResponseObject.data
+                let topicListJSON = TopicList(dictionaryObject:topicData!)
+                let topicJSON = topicListJSON.topic
+                let topic = topicJSON.map({ (json) -> Topic in
+                    return Topic(jsonObject: json)
+                })
+                if requestPage == 0 {
+                    self.persistencyManager.setMyTopicAtIndex(topic, index:index)
+                } else {
+                    self.persistencyManager.appendNewTopicAtIndex(topic, index: index)
+                }
+                completion()
+            }
+        }
+        
+    }
+    
+    func getRecommendData(requestPage:Int, completion:()->Void){
         
         httpRequest.getBanTangRecommendData(requestPage) {
             (responseObject) -> Void in
@@ -68,33 +102,57 @@ class LibraryAPI: NSObject {
                 
                 let recommendResponseObject = RecommendResponseObject(jsonObject: jsonObject)
                 let recommendData = RecommendData(dictionaryObject: recommendResponseObject.data!)
-                let topicsJSON = recommendData.topic
-                let bannersJSON = recommendData.banner
-                let categoryElementJSON = recommendData.categoryElement
-                let bannerBottomElementJSON = recommendData.bannerBottomElement
                 
-                var categoryElements = categoryElementJSON.map({ (json) -> CategoryElement in
-                    return CategoryElement(jsonObject: json)
-                })
-                categoryElements.insert(CategoryElement(ID:"0", title:"最新"), atIndex: 0)
+                var topics = [[Topic]]()
+                if let categoryElementJSON = recommendData.categoryElement {
+                    var categoryElements = categoryElementJSON.map({ (json) -> CategoryElement in
+                        return CategoryElement(jsonObject: json)
+                    })
+                    categoryElements.insert(CategoryElement(ID:"0", title:"最新"), atIndex: 0)
+                    topics = [[Topic]](count: categoryElements.count, repeatedValue: [Topic]())
+                    self.persistencyManager.setMyCategoryElements(categoryElements)
+
+                } else {
+                    
+                }
+
+                if let topicsJSON = recommendData.topic {
+                    let topic = topicsJSON.map({ (json) -> Topic in
+                        return Topic(jsonObject: json)
+                    })
+                    
+                    if requestPage == 0 {
+                        topics[0] = topic
+                        self.persistencyManager.setMyTopics(topics)
+                    } else {
+                        self.persistencyManager.appendNewTopicAtIndex(topic, index: 0)
+                    }
+
+                }
                 
-                let topic = topicsJSON.map({ (json) -> Topic in
-                    return Topic(jsonObject: json)
-                })
+                if let bannersJSON = recommendData.banner {
+                    let banners = bannersJSON.map({ (json) -> Banner in
+                        return Banner(jsonObject: json)
+                    })
+                    self.persistencyManager.setMyBanners(banners)
+
+                }
                 
-                var topics = [[Topic]](count: categoryElements.count, repeatedValue: [Topic]())
-                topics[0] = topic
-                
-                let banners = bannersJSON.map({ (json) -> Banner in
-                    return Banner(jsonObject: json)
-                })
-                
-                let bannerBottomElements = bannerBottomElementJSON.map({ (json) -> BannerBottomElement in
-                    return BannerBottomElement(jsonObject: json)
-                })
-                
+                if let bannerBottomElementJSON = recommendData.bannerBottomElement {
+                    let bannerBottomElements = bannerBottomElementJSON.map({ (json) -> BannerBottomElement in
+                        return BannerBottomElement(jsonObject: json)
+                    })
+                    self.persistencyManager.setMyCannerBottomElements(bannerBottomElements)
+
+                }
+
+                completion()
             }
         }
+    }
+    
+    func downloadImage(imageURL: NSURL) -> UIImage {
+        return httpRequest.downLoadImage(imageURL)
     }
 
 }
