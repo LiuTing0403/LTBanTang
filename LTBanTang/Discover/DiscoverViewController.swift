@@ -13,6 +13,9 @@ class DiscoverViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.tintColor = UIColor.grayColor()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.lightGrayColor()]
+        self.navigationController?.navigationBar.translucent = false
         // Do any additional setup after loading the view.
     }
 

@@ -8,7 +8,7 @@
         <!--发现-->
         <scene sceneID="GvU-Hv-b5B">
             <objects>
-                <viewController storyboardIdentifier="DiscoverVC" id="DTK-MA-hkO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverVC" id="DTK-MA-hkO" customClass="DiscoverViewController" customModule="全糖" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yDU-mO-yMZ"/>
                         <viewControllerLayoutGuide type="bottom" id="xOR-I0-nYg"/>
@@ -19,13 +19,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="发现" id="bht-pB-xxy">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Ckx-hZ-tD8"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="P1i-wd-8q7"/>
+                        <barButtonItem key="leftBarButtonItem" image="list" id="Ckx-hZ-tD8"/>
+                        <barButtonItem key="rightBarButtonItem" image="Camera" id="P1i-wd-8q7"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVR-0w-DNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="152"/>
+            <point key="canvasLocation" x="1344" y="151.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TUm-94-5bl">
@@ -46,4 +46,8 @@
             <point key="canvasLocation" x="426" y="152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Camera" width="23" height="21"/>
+        <image name="list" width="32" height="32"/>
+    </resources>
 </document>
