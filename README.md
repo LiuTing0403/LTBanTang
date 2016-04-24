@@ -14,7 +14,7 @@
 ##记录
 2016年4月24日，记录：
 
-![](/Users/liuting/Desktop/屏幕快照 2016-04-24 下午3.22.14.png)
+![](https://github.com/LiuTing0403/LTBanTang/blob/master/screenshots/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-04-24%20%E4%B8%8B%E5%8D%883.22.14.png)
 
 抓了首页的数据包，完成了首页的构建，目前只完成了获取数据及展示功能
 
