@@ -29,10 +29,6 @@ class LibraryAPI: NSObject {
         super.init()
     }
     
-//    func getFirstPageData() -> ([[Topic]], [Banner], [CategoryElement], [BannerBottomElement]) {
-//        return persistencyManager.getFirstPageData()
-//    }
-    
     func getTopics() -> [[Topic]] {
         return persistencyManager.getTopics()
     }
